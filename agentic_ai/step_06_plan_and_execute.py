@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         AGENTIC AI — STEP 7: Plan-and-Execute Agent Pattern      ║
+║         AGENTIC AI — STEP 6: Plan-and-Execute Agent Pattern      ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 WHAT WE'RE LEARNING TODAY:

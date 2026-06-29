@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         AGENTIC AI — STEP 4: LangGraph State Persistence         ║
+║         AGENTIC AI — STEP 3: LangGraph State Persistence         ║
 ║                           (MemorySaver)                          ║
 ╚══════════════════════════════════════════════════════════════════╝
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         AGENTIC AI — STEP 5: Human-in-the-Loop & State Editing    ║
+║         AGENTIC AI — STEP 4: Human-in-the-Loop & State Editing    ║
 ║                           (HITL + Interrupts)                    ║
 ╚══════════════════════════════════════════════════════════════════╝
 

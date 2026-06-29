@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         AGENTIC AI — STEP 10: Agentic AI Interview Prep          ║
+║         AGENTIC AI — STEP 9: Agentic AI Interview Prep          ║
 ╚══════════════════════════════════════════════════════════════════╝
 
 An interactive interview preparation terminal utility covering key

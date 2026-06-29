@@ -1,63 +1,77 @@
-# LangChain: Advanced Concepts Guide (Unique to agentic_ai)
+# Agentic AI — Advanced Orchestration & Systems
 
-This project has been analyzed and trimmed against your existing `gen_ai/study_buddy` curriculum to keep only the advanced topics that were **not** taught there.
+Welcome to the **Agentic AI** curriculum! This folder contains a progressive, hands-on guide to building advanced autonomous agent architectures. 
+
+It is designed as a direct sequel to the foundations in the `gen_ai` folder, focusing purely on advanced orchestration patterns, stateful control graphs, human intervention, and multi-agent coordination.
 
 ---
 
-## 📁 Unique Advanced Topics Kept
+## 📁 Curriculum structure
+
+Here is the sequential layout of the topics you will cover:
 
 ```
 agentic_ai/
 │
-├── 03_chains/
-│   └── 01_lcel_chains.py          # Detailed LCEL composition (RunnablePassthrough, RunnableLambda, RunnableParallel, RunnableBranch)
-│
-├── 08_advanced/
-│   └── 02_multiagent.py           # Multi-Agent systems: Supervisor pattern, parallel agent workflows, and task handoffs
-│
-├── capstone_project.py            # CAPSTONE — Multi-intent router state graph
-├── req.txt                        # Dependencies
-└── README.md                      # This file
+├── step_01_tool_calling_mechanics.py   # Manual tool-calling handshakes & error handling
+├── step_02_react_from_scratch.py       # ReAct loops from scratch using plain Python while-loops
+├── step_03_langgraph_persistence.py    # Stateful persistence with checkpointers & thread memory
+├── step_04_human_in_the_loop.py        # Interrupts, manual review breakpoints, and state updates
+├── step_05_corrective_rag.py           # Corrective RAG (CRAG) with self-grading and web fallbacks
+├── step_06_plan_and_execute.py         # Plan-and-Execute planners, execution loops, and replanners
+├── step_07_multiagent_supervisor.py    # Multi-Agent systems: Supervisor pattern & task delegation
+├── step_08_capstone_assistant.py       # Production-style assistant with persistent state graph
+├── step_09_agent_interview_prep.py     # Q&A covering core agentic design patterns and trade-offs
+└── step_10_learned_summary.md          # Comprehensive summary of key takeaways and concepts
 ```
 
 ---
 
-## 📚 What These Advanced Files Teach You
+## 📚 What Each Step Teaches You
 
-### 1. Detailed LCEL Composition (`03_chains/01_lcel_chains.py`)
-While your `study_buddy` lessons introduce the basic `prompt | llm | parser` chain, this file goes deep into the advanced composition elements of LangChain Expression Language (LCEL):
-* **`RunnablePassthrough`**: How to pass data through unmodified or dynamically inject extra keys into the inputs.
-* **`RunnableLambda`**: Wrapping arbitrary Python functions into a pipeline so they behave like native LangChain runnables.
-* **`RunnableParallel`**: Fanning out and running multiple independent prompts or tasks concurrently to save latency.
-* **`RunnableBranch`**: Creating conditional logic pipelines (routing queries to different prompt/LLM chains based on content).
+### 1. Manual Tool-Calling Mechanics (`step_01_tool_calling_mechanics.py`)
+* Understanding how `.bind_tools()` maps Python schemas to JSON payloads.
+* Parsing structural tool outputs and mapping execution results to `ToolMessage` instances.
+* Graceful tool execution error handling and feeding execution warnings back to the model.
 
----
+### 2. ReAct Loop From Scratch (`step_02_react_from_scratch.py`)
+* Building the classic Reason-Action-Observation loop using a basic Python `while` loop.
+* Preventing infinite loops in production with step limits (`max_iterations`).
+* Constructing intermediate messages dynamically and feeding them back to the LLM.
 
-### 2. Multi-Agent Systems (`08_advanced/02_multiagent.py`)
-Your `study_buddy` agent (Step 5) focuses on a single ReAct agent. This file introduces multi-agent design patterns:
-* **The Supervisor Pattern**: A central coordinator LLM receives the user query, evaluates the state, and delegates the next sub-task to specialized agent nodes.
-* **Collaboration & Handoffs**: Sub-agents running tasks (Research, Writing, Reviewing) and returning control/data back to the Supervisor.
-* **Parallel Workflows**: Fanning out separate specialist agents to analyze a topic simultaneously and aggregating their opinions.
+### 3. LangGraph State Persistence (`step_03_langgraph_persistence.py`)
+* Introduction to `MemorySaver` checkpointers for persistent state management.
+* Isolating conversations using thread configurations (`thread_id`).
+* Inspecting graph execution states, history, and checkpoint values at runtime.
 
----
+### 4. Human-in-the-Loop & Interventions (`step_04_human_in_the_loop.py`)
+* Pausing execution before entering specific nodes using `interrupt_before`.
+* Simulating human review check gates for high-stakes tool actions (like wire transfers).
+* Editing state values directly at runtime and resuming graph execution cleanly.
 
-### 3. Capstone Router Agent (`capstone_project.py`)
-A production-inspired custom state graph combining:
-* **Intent Classification Node**: Pre-routing the query to reduce token usage and improve prompt accuracy.
-* **Intent-Specific Graph Execution**: Executing targeted tool-agents depending on the intent (Calculator, Knowledge Base RAG, study plan generator).
-* **Stateful History Isolation**: Session-based memory across multiple user turns in a clean interactive console.
+### 5. Corrective RAG (CRAG) (`step_05_corrective_rag.py`)
+* Document self-grading nodes to score retrieved chunks for relevance.
+* Branching retrieval paths: returning direct answers, performing query translation, or falling back to web search.
+* Building a complete self-correcting information gathering system.
 
----
+### 6. Plan-and-Execute Agent (`step_06_plan_and_execute.py`)
+* Mitigating reasoning loss in complex, multi-step tasks by separating planning from execution.
+* Implementing a **Planner** node to draft a sequential checklist of sub-tasks.
+* Implementing an **Executor** node to run tools, and a **Replanner** to update the checklist based on feedback.
 
-## 🚀 Quick Start
+### 7. Multi-Agent Supervisor (`step_07_multiagent_supervisor.py`)
+* Orchestrating multi-agent collaboration with a central **Supervisor LLM**.
+* Dynamically delegating specialized tasks to child agents (Research Agent, Writing Agent).
+* Routing control flow and passing state context back to the Supervisor node.
 
-1. **Activate venv**: 
-   ```powershell
-   .venv\Scripts\Activate.ps1
-   ```
-2. **Run any file**:
-   ```powershell
-   python 03_chains/01_lcel_chains.py
-   python 08_advanced/02_multiagent.py
-   python capstone_project.py
-   ```
+### 8. Capstone Assistant (`step_08_capstone_assistant.py`)
+* Designing a production-grade multi-intent router agent.
+* Isolating intent classification from tool execution to save token costs and improve stability.
+* Incorporating persistent session-based state and interactive terminal-based chat.
+
+### 9. Agent Interview Prep (`step_09_agent_interview_prep.py`)
+* Reviewing key architectural decisions and system design tradeoffs.
+* Interactive Q&A covering state management, loop prevention, human-in-the-loop, and multi-agent coordination.
+
+### 10. Learned Summary (`step_10_learned_summary.md`)
+* A summarized review of the core agentic concepts, insights, and structural differences compared to standard RAG and prompting pipelines.

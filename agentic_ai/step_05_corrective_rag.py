@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║           AGENTIC AI — STEP 6: Corrective RAG (CRAG)             ║
+║           AGENTIC AI — STEP 5: Corrective RAG (CRAG)             ║
 ║                      (Self-Grading & Web Fallback)               ║
 ╚══════════════════════════════════════════════════════════════════╝
 
