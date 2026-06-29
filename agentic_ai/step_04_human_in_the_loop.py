@@ -3,12 +3,12 @@
 ╔══════════════════════════════════════════════════════════════════╗
 ║         AGENTIC AI — STEP 4: Human-in-the-Loop & State Editing    ║
 ║                           (HITL + Interrupts)                    ║
-╚══════════════════════════════════════════════════════════════════╝
+╚══════════════════════════════════════════════════════════════════╝ 
 
 WHAT WE'RE LEARNING TODAY:
   - The Human-in-the-Loop (HITL) design pattern for sensitive transactions.
   - Setting up breakpoints using `interrupt_before` during graph compilation.
-  - Inspecting paused graph execution states and active tool calls.
+  - Inspecting paused graph execution states  and active tool calls.
   - Modifying state properties dynamically using `update_state()`.
   - Resuming graph execution after user approval or modification.
 
